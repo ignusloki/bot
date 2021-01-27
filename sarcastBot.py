@@ -32,7 +32,7 @@ def trap(update, context):
 def fight(update, context):
     url = get_url()
     context.bot.sendPhoto(
-      chat_id=update.effective_chat.id, photo='https://github.com/ignusloki/bot/blob/master/img/photo_2021-01-23_13-30-16.jpg'
+      chat_id=update.effective_chat.id, photo='https://ignusloki.github.io/bot/img/photo_2021-01-23_13-30-16.jpg'
     )
 
 def main():
