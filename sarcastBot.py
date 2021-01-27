@@ -30,20 +30,24 @@ def trap(update, context):
 
 
 def main():
+    updater = Updater('1449834468:AAFbcYaczBRFsMWnDDvA7pfcW7MWVGyKVuA')
+    dp = updater.dispatcher
+    dp.add_handler(CommandHandler('start',start))
+    dp.add_handler(CommandHandler('sarcasmo',sarcasmo))
+    dp.add_handler(CommandHandler('s',sarcasmo))
+    dp.add_handler(CommandHandler('pikachu',pikachu))
+    dp.add_handler(CommandHandler('trap',trap))
+	
+    while True:
+        try:
+            updater.start_polling()
 
-    try:
-        updater = Updater('1449834468:AAFbcYaczBRFsMWnDDvA7pfcW7MWVGyKVuA')
-        dp = updater.dispatcher
-        dp.add_handler(CommandHandler('start',start))
-        dp.add_handler(CommandHandler('sarcasmo',sarcasmo))
-        dp.add_handler(CommandHandler('s',sarcasmo))
-        dp.add_handler(CommandHandler('pikachu',pikachu))
-        dp.add_handler(CommandHandler('trap',trap))
-        updater.start_polling()
-        updater.idle()  
-    except ConnectionError as e:
-        log e
-        start Bot()
+        except Exception as e:
+            logger.error(e)  # or just print(e) if you don't have logger,
+            # or import traceback; traceback.print_exc() for print full info
+            time.sleep(15)
+            
+    updater.idle()
 	
 def start(update, context):
     response_message = "Eu fui criado para indicar sarcasmo para os Sheldons do grupo!"
