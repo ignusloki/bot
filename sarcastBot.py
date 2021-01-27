@@ -29,6 +29,12 @@ def trap(update, context):
     )
 
 
+def fight(update, context):
+    url = get_url()
+    context.bot.sendPhoto(
+      chat_id=update.effective_chat.id, photo='https://github.com/ignusloki/bot/blob/master/img/photo_2021-01-23_13-30-16.jpg'
+    )
+
 def main():
     updater = Updater('1449834468:AAFbcYaczBRFsMWnDDvA7pfcW7MWVGyKVuA')
     dp = updater.dispatcher
@@ -37,6 +43,7 @@ def main():
     dp.add_handler(CommandHandler('s',sarcasmo))
     dp.add_handler(CommandHandler('pikachu',pikachu))
     dp.add_handler(CommandHandler('trap',trap))
+    dp.add_handler(CommandHandler('fight',fight))
 	
     while True:
         try:
